@@ -1,6 +1,6 @@
 // D-Day 계산
 function calculateDday() {
-    const weddingDate = new Date('2025-03-15');
+    const weddingDate = new Date('2025-11-30');
     const today = new Date();
     const diff = weddingDate - today;
     const daysLeft = Math.ceil(diff / (1000 * 60 * 60 * 24));
@@ -199,7 +199,7 @@ function loadSampleGuestbook() {
 function shareKakao() {
     // 카카오 SDK가 없으므로 URL scheme 사용
     const url = window.location.href;
-    const text = '준상 ❤️ 은지 결혼합니다\n2025년 3월 15일 토요일 오후 2시\n더 컨벤션 역삼';
+    const text = '준형 ❤️ 상은 결혼합니다\n2025년 11월 30일 일요일 낮 12시\n수서 식물관PH';
     
     // 모바일 체크
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -247,7 +247,12 @@ function fallbackCopyLink(url) {
 
 // 웨딩홀 전화
 function callVenue() {
-    window.location.href = 'tel:02-1234-5678';
+    window.location.href = 'tel:02-459-9929';
+}
+
+// 개인 전화
+function callPerson(phoneNumber) {
+    window.location.href = 'tel:' + phoneNumber;
 }
 
 // 스크롤 애니메이션

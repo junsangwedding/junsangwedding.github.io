@@ -138,6 +138,12 @@ section {
     margin-top: 20px;
 }
 
+@media (min-width: 481px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 .gallery-grid img {
     width: 100%;
     height: 120px;
@@ -390,7 +396,7 @@ section {
 }
 
 .account-details button {
-    padding: 8px 20px;
+    padding: 8px 15px;
     background: #e91e63;
     color: white;
     border: none;
@@ -398,10 +404,30 @@ section {
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s;
+    margin: 5px;
 }
 
 .account-details button:hover {
     background: #d81b60;
+}
+
+.account-details .phone {
+    color: #666;
+    font-size: 13px;
+    display: block;
+    margin-top: 5px;
+}
+
+.flower-notice {
+    text-align: center;
+    color: #e91e63;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 30px 0;
+    padding: 20px;
+    background: #fff0f5;
+    border-radius: 10px;
+    font-weight: 500;
 }
 
 /* 방명록 섹션 */
