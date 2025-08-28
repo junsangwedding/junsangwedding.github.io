@@ -1,0 +1,588 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fafafa;
+    overflow-x: hidden;
+}
+
+/* 섹션 공통 스타일 */
+section {
+    padding: 60px 20px;
+    max-width: 480px;
+    margin: 0 auto;
+    background: white;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: #2c2c2c;
+    font-family: 'Nanum Myeongjo', serif;
+    letter-spacing: 2px;
+}
+
+/* 커버 섹션 */
+.cover {
+    padding: 0;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.7));
+}
+
+.cover-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.cover-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+
+.cover-text {
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px 60px;
+    border-radius: 10px;
+}
+
+.cover-text .date {
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.cover-text .names {
+    font-size: 36px;
+    font-weight: 300;
+    margin: 20px 0;
+    color: #2c2c2c;
+    letter-spacing: 5px;
+}
+
+.cover-text .names span {
+    color: #e91e63;
+    margin: 0 10px;
+    font-size: 28px;
+}
+
+.cover-text .subtitle {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* 인사말 섹션 */
+.greeting {
+    background: white;
+    text-align: center;
+}
+
+.greeting-text {
+    font-size: 15px;
+    line-height: 2;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.parents {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.parent-info {
+    margin: 15px 0;
+    font-size: 15px;
+    color: #555;
+}
+
+.parent-info strong {
+    color: #333;
+    font-weight: 500;
+}
+
+/* 갤러리 섹션 */
+.gallery {
+    background: white;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* 캘린더 섹션 */
+.calendar-section {
+    background: white;
+    text-align: center;
+}
+
+.calendar {
+    max-width: 350px;
+    margin: 0 auto 30px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.month {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.weekdays, .dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.weekdays span {
+    font-size: 12px;
+    color: #999;
+    padding: 10px 0;
+}
+
+.weekdays span:first-child {
+    color: #e91e63;
+}
+
+.weekdays span:last-child {
+    color: #4285f4;
+}
+
+.dates span {
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dates span:hover:not(.empty):not(.wedding-day) {
+    background: #f0f0f0;
+    border-radius: 50%;
+}
+
+.dates .empty {
+    cursor: default;
+}
+
+.dates .wedding-day {
+    background: #e91e63;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    position: relative;
+}
+
+.d-day {
+    font-size: 18px;
+    color: #e91e63;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+/* 오시는 길 섹션 */
+.location {
+    background: white;
+}
+
+.venue-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.venue-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.venue-info p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.map-container {
+    margin: 30px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#map {
+    width: 100%;
+    height: 300px;
+}
+
+#map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.transport {
+    margin: 30px 0;
+}
+
+.transport-item {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.transport-item h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.transport-item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.8;
+}
+
+.map-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.map-buttons button {
+    flex: 1;
+    padding: 12px 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.map-buttons button:hover {
+    background: #f0f0f0;
+}
+
+/* 마음 전하기 섹션 */
+.account {
+    background: white;
+}
+
+.account-intro {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.account-box {
+    margin: 30px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.account-box h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.account-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.account-item:hover {
+    background: #f0f0f0;
+}
+
+.account-item .name {
+    font-size: 15px;
+    color: #333;
+}
+
+.account-item .arrow {
+    color: #999;
+    transition: transform 0.3s;
+}
+
+.account-item.active .arrow {
+    transform: rotate(180deg);
+}
+
+.account-details {
+    display: none;
+    padding: 15px;
+    background: #fff;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+}
+
+.account-details.show {
+    display: block;
+}
+
+.account-details p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.account-details button {
+    padding: 8px 20px;
+    background: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.account-details button:hover {
+    background: #d81b60;
+}
+
+/* 방명록 섹션 */
+.guestbook {
+    background: white;
+}
+
+.guestbook-form {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.guestbook-form input,
+.guestbook-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Noto Serif KR', serif;
+}
+
+.guestbook-form textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.guestbook-form button {
+    width: 100%;
+    padding: 12px;
+    background: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.guestbook-form button:hover {
+    background: #d81b60;
+}
+
+.guestbook-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.guestbook-item {
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.guest-name {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.guest-message {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+
+.guest-date {
+    color: #999;
+    font-size: 12px;
+    text-align: right;
+}
+
+/* 공유하기 섹션 */
+.share {
+    background: white;
+    text-align: center;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.share-buttons button {
+    flex: 1;
+    max-width: 150px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+}
+
+.share-buttons .kakao {
+    background: #FEE500;
+    color: #3c1e1e;
+}
+
+.share-buttons .kakao:hover {
+    background: #fdd835;
+}
+
+.share-buttons .link {
+    background: #666;
+}
+
+.share-buttons .link:hover {
+    background: #555;
+}
+
+/* 푸터 */
+footer {
+    background: #f5f5f5;
+    text-align: center;
+    padding: 30px 20px;
+    color: #999;
+    font-size: 14px;
+}
+
+/* 플로팅 버튼 */
+.floating-contact {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(233, 30, 99, 0.4);
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.floating-contact:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(233, 30, 99, 0.5);
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 480px) {
+    .cover-text .names {
+        font-size: 28px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .map-buttons {
+        flex-direction: column;
+    }
+    
+    .map-buttons button {
+        width: 100%;
+    }
+}
