@@ -13,20 +13,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 메인 커버 -->
-    <section class="cover">
+    <!-- 메인 커버 (잠금화면 스타일) -->
+    <section class="cover lockscreen">
         <div class="cover-image">
             <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800" alt="웨딩 메인 사진">
         </div>
-        <div class="cover-text">
-            <p class="date">2025. 11. 30</p>
-            <h1 class="names">이준형 <span>&</span> 이상은</h1>
-            <p class="subtitle">일요일 낮 12시<br>수서 식물관PH</p>
+        
+        <!-- 상태바 -->
+        <div class="status-bar">
+            <span class="time-status"></span>
+            <div class="status-icons">
+                <span>📶</span>
+                <span>📶</span>
+                <span>🔋</span>
+            </div>
+        </div>
+        
+        <!-- 잠금 아이콘 -->
+        <div class="lock-icon">🔒</div>
+        
+        <!-- 날짜와 시간 -->
+        <div class="lockscreen-datetime">
+            <div class="lockscreen-date">11월 30일 일요일</div>
+            <div class="lockscreen-time">12:00</div>
+        </div>
+        
+        <!-- 알림 스타일 메시지 -->
+        <div class="notification">
+            <div class="notification-icon">❤️</div>
+            <div class="notification-content">
+                <div class="notification-title">이준형 & 이상은 💗</div>
+                <div class="notification-text">WE'RE GETTING MARRIED!</div>
+            </div>
+            <div class="notification-time">방금 전</div>
+        </div>
+        
+        <!-- Swipe up 안내 -->
+        <div class="swipe-up">
+            <div class="swipe-line"></div>
+            <p>위로 스와이프하여 입장</p>
         </div>
     </section>
 
     <!-- 인사말 -->
-    <section class="greeting">
+    <section class="greeting" id="main-content">
+        <div class="couple-intro">
+            <h1 class="couple-names">이준형 <span class="heart">♥</span> 이상은</h1>
+            <p class="wedding-info">
+                <span class="wedding-date-full">2025년 11월 30일 일요일 낮 12시</span><br>
+                <span class="wedding-venue">수서 식물관PH</span>
+            </p>
+        </div>
+        
         <h2 class="section-title">초대합니다</h2>
         <p class="greeting-text">
             따뜻한 봄날,<br>
@@ -238,5 +276,70 @@
     </button>
 
     <script src="script.js"></script>
+    <script>
+        // 잠금화면 스와이프 효과
+        document.addEventListener('DOMContentLoaded', function() {
+            const lockscreen = document.querySelector('.lockscreen');
+            const swipeUp = document.querySelector('.swipe-up');
+            const mainContent = document.getElementById('main-content');
+            
+            // 터치 및 클릭 이벤트
+            let startY = 0;
+            let currentY = 0;
+            let isDragging = false;
+            
+            function handleStart(e) {
+                startY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+                isDragging = true;
+            }
+            
+            function handleMove(e) {
+                if (!isDragging) return;
+                currentY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+                const deltaY = startY - currentY;
+                
+                if (deltaY > 50) {
+                    unlockScreen();
+                }
+            }
+            
+            function handleEnd() {
+                isDragging = false;
+            }
+            
+            function unlockScreen() {
+                lockscreen.classList.add('unlock');
+                setTimeout(() => {
+                    lockscreen.style.display = 'none';
+                    mainContent.scrollIntoView({ behavior: 'smooth' });
+                }, 800);
+            }
+            
+            // 이벤트 리스너
+            lockscreen.addEventListener('touchstart', handleStart);
+            lockscreen.addEventListener('touchmove', handleMove);
+            lockscreen.addEventListener('touchend', handleEnd);
+            lockscreen.addEventListener('mousedown', handleStart);
+            lockscreen.addEventListener('mousemove', handleMove);
+            lockscreen.addEventListener('mouseup', handleEnd);
+            
+            // 스와이프 안내 클릭 시
+            swipeUp.addEventListener('click', unlockScreen);
+            
+            // 현재 시간 표시
+            function updateStatusTime() {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const timeStatus = document.querySelector('.time-status');
+                if (timeStatus) {
+                    timeStatus.textContent = `${hours}:${minutes}`;
+                }
+            }
+            
+            updateStatusTime();
+            setInterval(updateStatusTime, 1000);
+        });
+    </script>
 </body>
 </html>
