@@ -5,10 +5,10 @@
 }
 
 body {
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Noto Serif KR', serif;
     line-height: 1.7;
-    color: #4a4a4a;
-    background-color: #fdfbf8;
+    color: #2d2d2d;
+    background-color: #f8f8f8;
     overflow-x: hidden;
 }
 
@@ -28,9 +28,9 @@ section {
     font-size: 22px;
     font-weight: 300;
     margin-bottom: 30px;
-    color: #7d6e5d;
+    color: #3a3a3a;
     letter-spacing: 0.5px;
-    font-family: 'Pretendard', sans-serif;
+    font-family: 'Noto Serif KR', serif;
     position: relative;
     padding-bottom: 12px;
 }
@@ -73,7 +73,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.5) contrast(0.9);
+    filter: grayscale(100%) brightness(0.6) contrast(1.1);
 }
 
 /* 상태바 */
@@ -259,9 +259,9 @@ section {
 .couple-intro {
     margin-bottom: 60px;
     padding: 30px 20px;
-    background: linear-gradient(135deg, #f8f4ee 0%, #fff9f4 100%);
-    border: 1px solid #e8dfd4;
-    color: #5a5a5a;
+    background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+    border: 1px solid #e0e0e0;
+    color: #2d2d2d;
     max-width: 440px;
     margin-left: auto;
     margin-right: auto;
@@ -283,33 +283,33 @@ section {
     height: 110px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ddb892;
-    box-shadow: 0 4px 12px rgba(221, 184, 146, 0.4);
+    border: 3px solid #888888;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .photo-label {
     display: block;
     margin-top: 6px;
     font-size: 11px;
-    color: #8b7a69;
+    color: #666666;
     font-weight: 500;
     letter-spacing: 0.5px;
 }
 
 .couple-names {
     font-size: 26px;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 18px;
-    letter-spacing: 0.5px;
-    font-family: 'Pretendard', sans-serif;
-    color: #6b5d54;
+    letter-spacing: 1px;
+    font-family: 'Noto Serif KR', serif;
+    color: #1a1a1a;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .couple-names .heart {
-    color: #ddb892;
+    color: #666666;
     margin: 0 12px;
     display: inline-block;
     font-size: 18px;
@@ -325,7 +325,7 @@ section {
 .wedding-info {
     font-size: 15px;
     line-height: 1.7;
-    color: #8b7a69;
+    color: #555555;
     word-break: keep-all;
     hyphens: none;
 }
@@ -341,28 +341,30 @@ section {
 .greeting-text {
     font-size: 15px;
     line-height: 1.8;
-    color: #7a7a7a;
+    color: #4a4a4a;
     margin-bottom: 35px;
     font-weight: 400;
     word-break: keep-all;
     hyphens: none;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .parents {
     margin-top: 50px;
     padding-top: 35px;
-    border-top: 1px solid #e8dfd4;
+    border-top: 1px solid #e0e0e0;
 }
 
 .parent-info {
     margin: 18px 0;
     font-size: 15px;
-    color: #6b6b6b;
-    letter-spacing: 0.3px;
+    color: #4a4a4a;
+    letter-spacing: 0.5px;
     word-break: keep-all;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .parent-info strong {
@@ -372,7 +374,7 @@ section {
 
 /* 갤러리 섹션 */
 .gallery {
-    background: #fafaf8;
+    background: #f9f9f9;
 }
 
 .gallery-grid {
@@ -411,8 +413,8 @@ section {
 .more-photos-hint {
     display: inline-block;
     padding: 15px 20px;
-    background: rgba(221, 184, 146, 0.1);
-    border: 1px solid rgba(221, 184, 146, 0.3);
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 25px;
     animation: gentle-bounce 2s infinite ease-in-out;
 }
@@ -426,10 +428,11 @@ section {
 .more-photos-hint p {
     display: inline;
     font-size: 14px;
-    color: #7d6e5d;
+    color: #4a4a4a;
     margin: 0;
     font-weight: 400;
     white-space: nowrap;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .photo-count {
@@ -545,8 +548,8 @@ section {
 .calendar {
     max-width: 350px;
     margin: 0 auto 40px;
-    background: #fafaf8;
-    border: 1px solid #e8dfd4;
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
     border-radius: 12px;
     padding: 20px;
 }
@@ -559,8 +562,9 @@ section {
 .month {
     font-size: 17px;
     font-weight: 500;
-    color: #6b5d54;
-    letter-spacing: 0.5px;
+    color: #3a3a3a;
+    letter-spacing: 0.8px;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .weekdays, .dates {
@@ -577,11 +581,11 @@ section {
 }
 
 .weekdays span:first-child {
-    color: #d4a574;
+    color: #777777;
 }
 
 .weekdays span:last-child {
-    color: #7fa0c3;
+    color: #777777;
 }
 
 .dates span {
@@ -593,7 +597,7 @@ section {
 }
 
 .dates span:hover:not(.empty):not(.wedding-day) {
-    background: #f8f4ee;
+    background: #f0f0f0;
     border-radius: 8px;
 }
 
@@ -602,7 +606,7 @@ section {
 }
 
 .dates .wedding-day {
-    background: #ddb892;
+    background: #555555;
     color: white;
     border-radius: 8px;
     font-weight: 600;
@@ -611,14 +615,15 @@ section {
 
 .d-day {
     font-size: 17px;
-    color: #d4a574;
+    color: #555555;
     margin-top: 25px;
     font-weight: 500;
+    font-family: 'Noto Serif KR', serif;
 }
 
 /* 오시는 길 섹션 */
 .location {
-    background: #fafaf8;
+    background: #f9f9f9;
 }
 
 .venue-info {
@@ -629,17 +634,19 @@ section {
 .venue-info h3 {
     font-size: 22px;
     margin-bottom: 12px;
-    color: #5a5a5a;
+    color: #2d2d2d;
     font-weight: 500;
     word-break: keep-all;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .venue-info p {
-    color: #7a7a7a;
+    color: #4a4a4a;
     font-size: 15px;
     line-height: 1.8;
     word-break: keep-all;
     hyphens: none;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .map-container {
@@ -672,7 +679,7 @@ section {
     padding: 20px;
     background: white;
     border-radius: 8px;
-    border: 1px solid #f0ebe4;
+    border: 1px solid #e8e8e8;
 }
 
 .transport-item:last-child {
@@ -682,16 +689,18 @@ section {
 .transport-item h4 {
     font-size: 16px;
     margin-bottom: 10px;
-    color: #6b5d54;
+    color: #2d2d2d;
     font-weight: 500;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .transport-item p {
     font-size: 15px;
-    color: #7a7a7a;
+    color: #4a4a4a;
     line-height: 1.8;
     word-break: keep-all;
     hyphens: none;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .map-buttons {
@@ -705,23 +714,24 @@ section {
     flex: 1;
     padding: 12px 18px;
     background: white;
-    border: 1px solid #e8dfd4;
+    border: 1px solid #e0e0e0;
     border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s;
-    color: #6b5d54;
+    color: #2d2d2d;
     font-weight: 500;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .map-buttons button:hover {
-    background: #f8f4ee;
-    border-color: #d4c4b0;
+    background: #f0f0f0;
+    border-color: #cccccc;
 }
 
 /* 마음 전하기 섹션 */
 .account {
-    background: #ffffff;
+    background: #fdfdfd;
 }
 
 .account-intro {
@@ -735,18 +745,19 @@ section {
 .account-box {
     margin: 40px auto;
     padding: 20px;
-    background: #fafaf8;
+    background: #f9f9f9;
     border-radius: 12px;
-    border: 1px solid #e8dfd4;
+    border: 1px solid #e0e0e0;
     max-width: 440px;
 }
 
 .account-box h3 {
     font-size: 17px;
     margin-bottom: 25px;
-    color: #6b5d54;
+    color: #2d2d2d;
     text-align: center;
     font-weight: 500;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .account-item {
@@ -759,21 +770,22 @@ section {
     margin: 10px 0;
     cursor: pointer;
     transition: all 0.3s;
-    border: 1px solid #f0ebe4;
+    border: 1px solid #e8e8e8;
 }
 
 .account-item:hover {
-    background: #fdfbf8;
+    background: #f8f8f8;
 }
 
 .account-item .name {
     font-size: 16px;
-    color: #5a5a5a;
+    color: #2d2d2d;
     font-weight: 400;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .account-item .arrow {
-    color: #b8a798;
+    color: #888888;
     transition: transform 0.3s;
     font-size: 14px;
 }
@@ -785,7 +797,7 @@ section {
 .account-details {
     display: none;
     padding: 15px;
-    background: #fdfbf8;
+    background: #f8f8f8;
     margin-top: -10px;
     margin-bottom: 10px;
     border-radius: 0 0 8px 8px;
@@ -798,14 +810,15 @@ section {
 
 .account-details p {
     font-size: 14px;
-    color: #7a7a7a;
+    color: #4a4a4a;
     margin-bottom: 12px;
     line-height: 1.6;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .account-details button {
     padding: 10px 20px;
-    background: #ddb892;
+    background: #555555;
     color: white;
     border: none;
     border-radius: 6px;
@@ -814,15 +827,16 @@ section {
     transition: all 0.3s;
     margin: 5px;
     font-weight: 500;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .account-details button:hover {
-    background: #c9a47c;
+    background: #333333;
     transform: translateY(-1px);
 }
 
 .account-details .phone {
-    color: #666;
+    color: #666666;
     font-size: 13px;
     display: block;
     margin-top: 5px;
@@ -830,26 +844,27 @@ section {
 
 .flower-notice {
     text-align: center;
-    color: #d4a574;
+    color: #555555;
     font-size: 15px;
     line-height: 1.8;
     margin: 35px 0;
     padding: 25px;
-    background: #fff9f4;
+    background: #f5f5f5;
     border-radius: 8px;
     font-weight: 400;
-    border: 1px solid #f0e5d8;
+    border: 1px solid #e0e0e0;
+    font-family: 'Noto Serif KR', serif;
 }
 
 /* 방명록 섹션 */
 .guestbook {
-    background: white;
+    background: #fdfdfd;
 }
 
 .guestbook-form {
     margin-bottom: 30px;
     padding: 20px;
-    background: #f9f9f9;
+    background: #f5f5f5;
     border-radius: 10px;
 }
 
@@ -858,7 +873,7 @@ section {
     width: 100%;
     padding: 12px;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #cccccc;
     border-radius: 5px;
     font-size: 14px;
     font-family: 'Noto Serif KR', serif;
@@ -872,17 +887,18 @@ section {
 .guestbook-form button {
     width: 100%;
     padding: 12px;
-    background: #e91e63;
+    background: #555555;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .guestbook-form button:hover {
-    background: #d81b60;
+    background: #333333;
 }
 
 .guestbook-list {
@@ -892,33 +908,35 @@ section {
 
 .guestbook-item {
     padding: 15px;
-    background: #f9f9f9;
+    background: #f5f5f5;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
 .guest-name {
     font-weight: 500;
-    color: #333;
+    color: #2d2d2d;
     margin-bottom: 5px;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .guest-message {
-    color: #666;
+    color: #4a4a4a;
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 5px;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .guest-date {
-    color: #999;
+    color: #888888;
     font-size: 12px;
     text-align: right;
 }
 
 /* 공유하기 섹션 */
 .share {
-    background: #fafaf8;
+    background: #f9f9f9;
     text-align: center;
 }
 
@@ -952,25 +970,26 @@ section {
 }
 
 .share-buttons .link {
-    background: #6b5d54;
+    background: #2d2d2d;
     color: white;
 }
 
 .share-buttons .link:hover {
-    background: #5a4c44;
+    background: #1a1a1a;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(107, 93, 84, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* 푸터 */
 footer {
-    background: #f8f4ee;
+    background: #f0f0f0;
     text-align: center;
     padding: 40px 20px;
-    color: #9a8c7f;
+    color: #666666;
     font-size: 13px;
     max-width: 480px;
     margin: 0 auto;
+    font-family: 'Noto Serif KR', serif;
 }
 
 /* 플로팅 버튼 - 제거됨 */
