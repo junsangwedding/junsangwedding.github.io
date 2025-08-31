@@ -279,40 +279,6 @@ function observeElements() {
     });
 }
 
-// 갤러리 이미지 클릭 시 확대
-document.querySelectorAll('.gallery-grid img').forEach(img => {
-    img.addEventListener('click', function() {
-        const modal = document.createElement('div');
-        modal.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 3000;
-            cursor: pointer;
-        `;
-        
-        const modalImg = document.createElement('img');
-        modalImg.src = this.src;
-        modalImg.style.cssText = `
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        `;
-        
-        modal.appendChild(modalImg);
-        document.body.appendChild(modal);
-        
-        modal.addEventListener('click', function() {
-            modal.remove();
-        });
-    });
-});
 
 // 애니메이션 스타일 추가
 const style = document.createElement('style');

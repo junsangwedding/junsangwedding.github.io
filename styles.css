@@ -12,11 +12,11 @@ body {
     overflow-x: hidden;
 }
 
-/* 섹션 공통 스타일 */
+/* 섹션 공통 스타일 - 모바일 우선 */
 section {
-    padding: 70px 25px;
-    max-width: 480px;
-    margin: 0 auto;
+    padding: 50px 15px;
+    width: 100%;
+    margin: 0;
     background: #ffffff;
     margin-bottom: 1px;
     border: none;
@@ -24,14 +24,14 @@ section {
 
 .section-title {
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 300;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #7d6e5d;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     font-family: 'Pretendard', sans-serif;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 12px;
 }
 
 .section-title:after {
@@ -40,7 +40,7 @@ section {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 30px;
+    width: 25px;
     height: 1px;
     background: #d4c4b0;
 }
@@ -253,8 +253,8 @@ section {
 .couple-photos {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-bottom: 30px;
+    gap: 30px;
+    margin-bottom: 25px;
 }
 
 .groom-photo, .bride-photo {
@@ -262,28 +262,28 @@ section {
 }
 
 .groom-photo img, .bride-photo img {
-    width: 140px;
-    height: 140px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #ddb892;
-    box-shadow: 0 6px 16px rgba(221, 184, 146, 0.4);
+    border: 3px solid #ddb892;
+    box-shadow: 0 4px 12px rgba(221, 184, 146, 0.4);
 }
 
 .photo-label {
     display: block;
-    margin-top: 8px;
-    font-size: 12px;
+    margin-top: 6px;
+    font-size: 11px;
     color: #8b7a69;
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .couple-names {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 400;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
     font-family: 'Pretendard', sans-serif;
     color: #6b5d54;
 }
@@ -303,8 +303,8 @@ section {
 
 
 .wedding-info {
-    font-size: 15px;
-    line-height: 1.8;
+    font-size: 14px;
+    line-height: 1.7;
     color: #8b7a69;
 }
 
@@ -317,10 +317,10 @@ section {
 }
 
 .greeting-text {
-    font-size: 15px;
-    line-height: 2;
+    font-size: 14px;
+    line-height: 1.8;
     color: #7a7a7a;
-    margin-bottom: 45px;
+    margin-bottom: 35px;
     font-weight: 400;
 }
 
@@ -350,29 +350,157 @@ section {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-top: 35px;
-}
-
-@media (min-width: 481px) {
-    .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    gap: 2px;
+    margin-top: 25px;
+    width: 100%;
 }
 
 .gallery-grid img {
     width: 100%;
-    height: 120px;
+    height: calc((100vw - 30px - 4px) / 3);
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 2px;
     transition: all 0.3s;
     filter: brightness(0.95);
+    cursor: pointer;
 }
 
 .gallery-grid img:hover {
     transform: scale(1.03);
     filter: brightness(1);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 갤러리 더보기 안내 */
+.gallery-more-info {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.more-photos-hint {
+    display: inline-block;
+    padding: 15px 20px;
+    background: rgba(221, 184, 146, 0.1);
+    border: 1px solid rgba(221, 184, 146, 0.3);
+    border-radius: 25px;
+    animation: gentle-bounce 2s infinite ease-in-out;
+}
+
+.hint-icon {
+    font-size: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.more-photos-hint p {
+    display: inline;
+    font-size: 13px;
+    color: #7d6e5d;
+    margin: 0;
+    font-weight: 400;
+}
+
+.photo-count {
+    font-size: 12px;
+    color: #b8a798;
+    margin-left: 5px;
+    font-weight: 300;
+}
+
+@keyframes gentle-bounce {
+    0%, 100% { 
+        transform: translateY(0); 
+        opacity: 0.8;
+    }
+    50% { 
+        transform: translateY(-3px); 
+        opacity: 1;
+    }
+}
+
+/* 갤러리 모달 */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 10001;
+    transition: opacity 0.3s;
+}
+
+.close-modal:hover {
+    opacity: 0.7;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 24px;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.modal-counter {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    backdrop-filter: blur(10px);
 }
 
 /* 캘린더 셉션 */
@@ -819,21 +947,3 @@ section {
     animation: fadeIn 1s ease-out;
 }
 
-/* 반응형 디자인 */
-@media (max-width: 480px) {
-    .cover-text .names {
-        font-size: 28px;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .map-buttons {
-        flex-direction: column;
-    }
-    
-    .map-buttons button {
-        width: 100%;
-    }
-}
