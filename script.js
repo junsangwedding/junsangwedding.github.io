@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 샘플 방명록 데이터 로드
     loadSampleGuestbook();
+    
+    // 카카오 SDK 초기화
+    initKakao();
 });
 
 // 계좌번호 토글
@@ -195,13 +198,62 @@ function loadSampleGuestbook() {
     });
 }
 
+// 카카오 SDK 초기화 및 공유
+function initKakao() {
+    // 여기에 카카오 개발자 콘솔에서 발급받은 JavaScript 키를 입력하세요
+    const KAKAO_APP_KEY = 'f98ae585053071a8a0b18d6d5f9d45f4';
+    
+    if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
+        try {
+            Kakao.init(KAKAO_APP_KEY);
+        } catch (error) {
+            console.log('카카오 SDK 초기화 실패:', error);
+        }
+    }
+}
+
 // 카카오톡 공유
 function shareKakao() {
-    // 카카오 SDK가 없으므로 URL scheme 사용
+    // SDK 초기화 확인
+    if (typeof Kakao === 'undefined' || !Kakao.isInitialized()) {
+        // SDK가 없거나 초기화되지 않은 경우 기존 방식 사용
+        fallbackKakaoShare();
+        return;
+    }
+    
+    try {
+        Kakao.Share.sendDefault({
+            objectType: 'feed',
+            content: {
+                title: 'Lee JunHyung & Lee SangEun',
+                description: 'Sunday, November 30, 2025',
+                imageUrl: window.location.origin + '/images/thumbnail_and_top.jpeg',
+                link: {
+                    mobileWebUrl: window.location.href,
+                    webUrl: window.location.href,
+                },
+            },
+            buttons: [
+                {
+                    title: '청첩장 보기',
+                    link: {
+                        mobileWebUrl: window.location.href,
+                        webUrl: window.location.href,
+                    },
+                },
+            ],
+        });
+    } catch (error) {
+        console.log('카카오 공유 실패:', error);
+        fallbackKakaoShare();
+    }
+}
+
+// 기존 방식 (SDK 실패시 대체)
+function fallbackKakaoShare() {
     const url = window.location.href;
     const text = '준형 ❤️ 상은 결혼합니다\n2025년 11월 30일 일요일 낮 12시\n수서 식물관PH';
     
-    // 모바일 체크
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     
     if (isMobile) {
