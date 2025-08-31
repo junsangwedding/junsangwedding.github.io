@@ -14,7 +14,7 @@
 </head>
 <body>
     <!-- 메인 커버 (잠금화면 스타일) -->
-    <section class="cover lockscreen">
+    <section class="cover">
         <div class="cover-image">
             <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800" alt="웨딩 메인 사진">
         </div>
@@ -58,6 +58,16 @@
     <!-- 인사말 -->
     <section class="greeting" id="main-content">
         <div class="couple-intro">
+            <div class="couple-photos">
+                <div class="groom-photo">
+                    <img src="신랑사진샘플.jpeg" alt="신랑 사진">
+                    <span class="photo-label">신랑</span>
+                </div>
+                <div class="bride-photo">
+                    <img src="신부사진샘플.jpeg" alt="신부 사진">
+                    <span class="photo-label">신부</span>
+                </div>
+            </div>
             <h1 class="couple-names">이준형 <span class="heart">♥</span> 이상은</h1>
             <p class="wedding-info">
                 <span class="wedding-date-full">2025년 11월 30일 일요일 낮 12시</span><br>
@@ -131,39 +141,39 @@
         <h2 class="section-title">오시는 길</h2>
         <div class="venue-info">
             <h3>수서 식물관PH</h3>
-            <p>서울특별시 강남구 밤고개로21길 29<br>
-            02-459-9929</p>
+            <p>서울특별시 강남구 광평로34길 24<br>
+            02-445-0405</p>
         </div>
         
         <div class="map-container">
-            <div id="map">
-                <!-- 카카오맵 API 대신 임시 이미지 -->
-                <img src="https://via.placeholder.com/400x300/E8F5E9/4CAF50?text=지도+위치" alt="지도">
-            </div>
+            <div id="map" style="width:100%;height:350px;"></div>
         </div>
 
         <div class="transport">
             <div class="transport-item">
                 <h4>🚇 지하철</h4>
-                <p>3호선·수인분당선 수서역 3번 출구 도보 10분<br>
-                3호선 일원역 1번 출구 도보 15분</p>
+                <p>수서역 지하철 1번 출구에서 도보 약 15분<br>
+                (SRT 1번 출구 X)<br>
+                <strong>1번 출구 앞 예식장 무료 셔틀버스 운행</strong></p>
             </div>
             <div class="transport-item">
                 <h4>🚌 버스</h4>
-                <p>수서역: 401, 402, 4419<br>
-                일원역: 3416, 3423</p>
+                <p>태화기독교사회복지관 정류장 또는<br>
+                수서119안전센터앞 정류장 하차<br>
+                하차 후 도보 약 5분</p>
             </div>
             <div class="transport-item">
                 <h4>🚗 자가용</h4>
-                <p>건물 내 주차장 이용 가능<br>
-                (무료 주차)</p>
+                <p>수서역 공영주차장 이용<br>
+                (서울 강남구 수서동 735)<br>
+                주차 후 1번 출구 앞 셔틀버스 이용<br>
+                <span style="color: #d4a574; font-size: 13px;">※ 예식장 내 주차가 불가하여 양해 부탁드립니다</span></p>
             </div>
         </div>
 
         <div class="map-buttons">
-            <button onclick="window.open('https://map.kakao.com')">카카오맵</button>
-            <button onclick="window.open('https://map.naver.com')">네이버지도</button>
-            <button onclick="window.open('https://maps.app.goo.gl')">구글맵</button>
+            <button onclick="window.open('https://kko.kakao.com/UowG-ug9Ai')">카카오맵</button>
+            <button onclick="window.open('https://naver.me/Ge5RF5Ed')">네이버지도</button>
         </div>
     </section>
 
@@ -270,63 +280,14 @@
         <p>© 2025 준형 ❤️ 상은 Wedding</p>
     </footer>
 
-    <!-- 플로팅 버튼 -->
-    <button class="floating-contact" onclick="callVenue()">
-        📞 연락하기
-    </button>
 
+    <!-- 카카오맵 API -->
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f98ae585053071a8a0b18d6d5f9d45f4"></script>
+    
     <script src="script.js"></script>
     <script>
-        // 잠금화면 스와이프 효과
+        // 현재 시간 표시
         document.addEventListener('DOMContentLoaded', function() {
-            const lockscreen = document.querySelector('.lockscreen');
-            const swipeUp = document.querySelector('.swipe-up');
-            const mainContent = document.getElementById('main-content');
-            
-            // 터치 및 클릭 이벤트
-            let startY = 0;
-            let currentY = 0;
-            let isDragging = false;
-            
-            function handleStart(e) {
-                startY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
-                isDragging = true;
-            }
-            
-            function handleMove(e) {
-                if (!isDragging) return;
-                currentY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
-                const deltaY = startY - currentY;
-                
-                if (deltaY > 50) {
-                    unlockScreen();
-                }
-            }
-            
-            function handleEnd() {
-                isDragging = false;
-            }
-            
-            function unlockScreen() {
-                lockscreen.classList.add('unlock');
-                setTimeout(() => {
-                    lockscreen.style.display = 'none';
-                    mainContent.scrollIntoView({ behavior: 'smooth' });
-                }, 800);
-            }
-            
-            // 이벤트 리스너
-            lockscreen.addEventListener('touchstart', handleStart);
-            lockscreen.addEventListener('touchmove', handleMove);
-            lockscreen.addEventListener('touchend', handleEnd);
-            lockscreen.addEventListener('mousedown', handleStart);
-            lockscreen.addEventListener('mousemove', handleMove);
-            lockscreen.addEventListener('mouseup', handleEnd);
-            
-            // 스와이프 안내 클릭 시
-            swipeUp.addEventListener('click', unlockScreen);
-            
-            // 현재 시간 표시
             function updateStatusTime() {
                 const now = new Date();
                 const hours = String(now.getHours()).padStart(2, '0');
@@ -339,6 +300,55 @@
             
             updateStatusTime();
             setInterval(updateStatusTime, 1000);
+            
+            // 카카오맵 초기화
+            if (window.kakao && kakao.maps) {
+                // 지도를 표시할 div
+                var mapContainer = document.getElementById('map');
+                
+                // 수서 식물관PH 좌표 (서울 강남구 광평로34길 24)
+                var mapOption = {
+                    center: new kakao.maps.LatLng(37.4870, 127.1010), // 지도의 중심좌표
+                    level: 3 // 지도의 확대 레벨
+                };
+                
+                // 지도 생성
+                var map = new kakao.maps.Map(mapContainer, mapOption);
+                
+                // 마커가 표시될 위치
+                var markerPosition = new kakao.maps.LatLng(37.4870, 127.1010);
+                
+                // 마커 생성
+                var marker = new kakao.maps.Marker({
+                    position: markerPosition
+                });
+                
+                // 마커를 지도에 표시
+                marker.setMap(map);
+                
+                // 인포윈도우 내용
+                var iwContent = '<div style="padding:8px 10px; width:180px; text-align:center;">' +
+                                '<strong style="font-size:14px;">수서 식물관PH</strong><br>' +
+                                '<span style="font-size:12px; color:#666;">서울 강남구 광평로34길 24</span>' +
+                                '</div>';
+                
+                // 인포윈도우 생성
+                var infowindow = new kakao.maps.InfoWindow({
+                    content: iwContent
+                });
+                
+                // 마커에 클릭이벤트 등록
+                kakao.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map, marker);
+                });
+                
+                // 초기에 인포윈도우 표시
+                infowindow.open(map, marker);
+                
+                // 지도 컨트롤 추가
+                var zoomControl = new kakao.maps.ZoomControl();
+                map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+            }
         });
     </script>
 </body>
