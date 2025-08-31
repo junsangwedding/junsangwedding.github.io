@@ -95,8 +95,12 @@ section {
 
 .status-icons {
     display: flex;
-    gap: 5px;
-    font-size: 14px;
+    gap: 8px;
+    align-items: center;
+}
+
+.status-icons svg {
+    opacity: 0.9;
 }
 
 /* 잠금 아이콘 */
@@ -105,9 +109,11 @@ section {
     top: 80px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 24px;
-    color: white;
     z-index: 10;
+}
+
+.lock-icon svg {
+    opacity: 0.8;
 }
 
 /* 날짜와 시간 */
