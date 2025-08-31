@@ -491,6 +491,34 @@
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden'; // 스크롤 방지
             updateModalCounter();
+            
+            // 다음 2장과 이전 2장 미리 로딩
+            preloadImages(index);
+        }
+        
+        function preloadImages(currentIndex) {
+            // 미리 로딩할 이미지 인덱스 계산
+            const preloadIndices = [];
+            
+            // 다음 2장
+            for (let i = 1; i <= 2; i++) {
+                const nextIndex = (currentIndex + i) % galleryImages.length;
+                preloadIndices.push(nextIndex);
+            }
+            
+            // 이전 2장
+            for (let i = 1; i <= 2; i++) {
+                const prevIndex = (currentIndex - i + galleryImages.length) % galleryImages.length;
+                preloadIndices.push(prevIndex);
+            }
+            
+            // 이미지 미리 로딩
+            preloadIndices.forEach(index => {
+                if (index !== currentIndex) {
+                    const img = new Image();
+                    img.src = galleryImages[index];
+                }
+            });
         }
         
         function closeGalleryModal() {
@@ -503,12 +531,14 @@
             currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
             document.getElementById('modalImage').src = galleryImages[currentImageIndex];
             updateModalCounter();
+            preloadImages(currentImageIndex);
         }
         
         function prevImage() {
             currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
             document.getElementById('modalImage').src = galleryImages[currentImageIndex];
             updateModalCounter();
+            preloadImages(currentImageIndex);
         }
         
         function updateModalCounter() {
