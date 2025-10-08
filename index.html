@@ -115,18 +115,18 @@
     <section class="gallery">
         <h2 class="section-title">갤러리</h2>
         <div class="gallery-grid">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-51 001.jpeg" alt="우리의 순간 1" onclick="openGalleryModal(0)">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-52 002.jpeg" alt="우리의 순간 2" onclick="openGalleryModal(1)">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-52 003.jpeg" alt="우리의 순간 3" onclick="openGalleryModal(2)">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-52 004.jpeg" alt="우리의 순간 4" onclick="openGalleryModal(3)">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-52 005.jpeg" alt="우리의 순간 5" onclick="openGalleryModal(4)">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-52 006.jpeg" alt="우리의 순간 6" onclick="openGalleryModal(5)">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-52 007.jpeg" alt="우리의 순간 7" onclick="openGalleryModal(6)">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-53 008.jpeg" alt="우리의 순간 8" onclick="openGalleryModal(7)">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-53 009.jpeg" alt="우리의 순간 9" onclick="openGalleryModal(8)">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-53 010.jpeg" alt="우리의 순간 10" onclick="openGalleryModal(9)">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-53 011.jpeg" alt="우리의 순간 11" onclick="openGalleryModal(10)">
-            <img src="images/KakaoTalk_Photo_2025-08-31-17-28-53 012.jpeg" alt="우리의 순간 12" onclick="openGalleryModal(11)">
+            <img src="images/gallery_01.jpeg" alt="우리의 순간 1" onclick="openGalleryModal(0)">
+            <img src="images/gallery_02.jpeg" alt="우리의 순간 2" onclick="openGalleryModal(1)">
+            <img src="images/gallery_03.jpeg" alt="우리의 순간 3" onclick="openGalleryModal(2)">
+            <img src="images/gallery_04.jpeg" alt="우리의 순간 4" onclick="openGalleryModal(3)">
+            <img src="images/gallery_05.jpeg" alt="우리의 순간 5" onclick="openGalleryModal(4)">
+            <img src="images/gallery_06.jpeg" alt="우리의 순간 6" onclick="openGalleryModal(5)">
+            <img src="images/gallery_07.jpeg" alt="우리의 순간 7" onclick="openGalleryModal(6)">
+            <img src="images/gallery_08.jpeg" alt="우리의 순간 8" onclick="openGalleryModal(7)">
+            <img src="images/gallery_09.jpeg" alt="우리의 순간 9" onclick="openGalleryModal(8)">
+            <img src="images/gallery_10.jpeg" alt="우리의 순간 10" onclick="openGalleryModal(9)">
+            <img src="images/gallery_11.jpeg" alt="우리의 순간 11" onclick="openGalleryModal(10)">
+            <img src="images/gallery_12.jpeg" alt="우리의 순간 12" onclick="openGalleryModal(11)">
         </div>
         
     </section>
@@ -225,8 +225,8 @@
                 <span class="arrow">▼</span>
             </div>
             <div class="account-details">
-                <p>국민은행 123456-01-234567</p>
-                <button onclick="copyAccount('123456-01-234567')">계좌 복사</button>
+                <p>하나은행 484-910323-61007</p>
+                <button onclick="copyAccount('484-910323-61007')">계좌 복사</button>
                 <button onclick="callPerson('010-5092-0115')">전화하기</button>
             </div>
             
@@ -235,8 +235,8 @@
                 <span class="arrow">▼</span>
             </div>
             <div class="account-details">
-                <p>신한은행 110-234-567890</p>
-                <button onclick="copyAccount('110-234-567890')">계좌 복사</button>
+                <p>농협 170888-56-138430</p>
+                <button onclick="copyAccount('170888-56-138430')">계좌 복사</button>
                 <button onclick="callPerson('010-9310-5780')">전화하기</button>
             </div>
         </div>
@@ -260,7 +260,7 @@
             <div class="account-details">
                 <p>우리은행 485-002201-12-001</p>
                 <button onclick="copyAccount('485-002201-12-001')">계좌 복사</button>
-                <button onclick="callPerson('010-1234-5678')">전화하기</button>
+                <button onclick="callPerson('010-8837-4029')">전화하기</button>
             </div>
 
             <div class="account-item" onclick="toggleAccount(this)">
@@ -398,28 +398,25 @@
         // 갤러리 관련 함수들
         let currentImageIndex = 0;
         const galleryImages = [
-            'images/KakaoTalk_Photo_2025-08-31-17-28-51 001.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-52 002.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-52 003.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-52 004.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-52 005.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-52 006.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-52 007.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-53 008.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-53 009.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-53 010.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-53 011.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-53 012.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-53 013.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-53 014.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-54 015.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-54 016.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-54 017.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-54 018.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-54 019.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-54 020.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-54 021.jpeg',
-            'images/KakaoTalk_Photo_2025-08-31-17-28-54 022.jpeg'
+            'images/gallery_01.jpeg',
+            'images/gallery_02.jpeg',
+            'images/gallery_03.jpeg',
+            'images/gallery_04.jpeg',
+            'images/gallery_05.jpeg',
+            'images/gallery_06.jpeg',
+            'images/gallery_07.jpeg',
+            'images/gallery_08.jpeg',
+            'images/gallery_09.jpeg',
+            'images/gallery_10.jpeg',
+            'images/gallery_11.jpeg',
+            'images/gallery_12.jpeg',
+            'images/gallery_13.jpeg',
+            'images/gallery_14.jpeg',
+            'images/gallery_15.jpeg',
+            'images/gallery_16.jpeg',
+            'images/gallery_17.jpeg',
+            'images/gallery_18.jpeg',
+            'images/gallery_19.jpeg'
         ];
 
         function initializeGallery() {
