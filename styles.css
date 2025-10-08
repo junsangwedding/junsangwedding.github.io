@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Noto Serif KR', serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Arial, 'Noto Serif KR', sans-serif;
     line-height: 1.7;
     color: #2d2d2d;
     background-color: #f8f8f8;
